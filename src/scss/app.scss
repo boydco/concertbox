@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Bangers|Francois+One|Montserrat|Shadows+Into+Light');
+
+$shadows: 'Shadows Into Light', cursive;
+$amatic: 'Amatic SC', cursive;
+$montserrat: 'Montserrat', sans-serif;
+$francois: 'Francois One', sans-serif;
+$bangers: 'Bangers', cursive;
+
+
+body {
+    padding: 50px 0;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 18px;
+}
+header {
+    margin-bottom: 20px;
+    text-align: center;
+    img {
+        max-width: 120px;
+    }
+}
+.content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    position: relative;
+    min-height: 250px;
+    width: 100%;
+    .table {
+        margin-bottom: 0;
+        td,th {
+            vertical-align: middle
+        }
+        .mRight {
+            margin-right: 20px;
+        }
+    }
+}
+.credits {
+    text-align: center;
+    padding: 70px;
+    opacity: .5;
+    transition: opacity 0.3s linear;
+    &:hover {
+        opacity: 1;
+    }
+    a {
+        color: #4b4668;
+    }
+}
+.message {
+    text-align: center;
+    &:only-child {
+        margin: 0;
+    }
+}
+.btn-sm {
+    margin-right: 8px;
+}
+.form-inline {
+    margin: 10px auto;
+    width: 235px;
+    .btn-default {
+        margin-left: 5px;
+    }
+}
+
+/* Simple show/hide */
+// .panel {
+//     .panel-body {
+//         display: none;
+//     }
+//     &.is-expanded {
+//         .panel-body {
+//             display: block;
+//         }
+//     }
+// }
+
+/* Simple CSS transition of max-height */
+// .panel {
+//     .panel-collapse {
+//         max-height: 0;
+//         overflow: hidden;
+//         transition: max-height 0.5s cubic-bezier(.525,.66,.495,1.4);
+//     }
+//     &.is-expanded {
+//         .panel-collapse {
+//             max-height: 200px
+//         }
+//     }
+// }
+
+/* JS calculated height - the most accurate */
+.panel {
+    .panel-heading {
+      padding: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 100% 10%;
+  background-size: 100%;
+
+        cursor: pointer;
+        // display: flex;
+
+        img {
+          max-width: 100%;
+          display: none;
+        }
+
+        .panel-overlay {
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+70,000000+81,000000+83,000000+93&0+32,0.85+100 */
+  background: -moz-linear-gradient(left, rgba(0,0,0,0) 32%, rgba(0,0,0,0.48) 70%, rgba(0,0,0,0.62) 81%, rgba(0,0,0,0.64) 83%, rgba(0,0,0,0.76) 93%, rgba(0,0,0,0.85) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0) 32%,rgba(0,0,0,0.48) 70%,rgba(0,0,0,0.62) 81%,rgba(0,0,0,0.64) 83%,rgba(0,0,0,0.76) 93%,rgba(0,0,0,0.85) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0,0,0,0) 32%,rgba(0,0,0,0.48) 70%,rgba(0,0,0,0.62) 81%,rgba(0,0,0,0.64) 83%,rgba(0,0,0,0.76) 93%,rgba(0,0,0,0.85) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#d9000000',GradientType=1 ); /* IE6-9 */
+          height: 300px;
+          text-align: right;
+          position: relative;
+
+          h2 {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            font-size: 30px;
+            text-transform: uppercase;
+            padding: 56px 24px;
+            padding-left: 15em;
+            font-family: $francois;
+          }
+
+          .panel-overlay__btn {
+            background: #d82020;
+            padding: 6px 10px;
+            border: solid 2px #d82020;
+            border-radius: 8px;
+            width: 120px;
+            position: absolute;
+            right: 1.5em;
+            bottom: 1em;
+            text-align: center;
+            color: #fff;
+            font-family: $francois;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+          }
+
+          .panel-overlay__date {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            /* padding: 20px 32px; */
+            /* width: 13%; */
+            font-size: 32px;
+            line-height: 40px;
+            position: absolute;
+            padding-top: 6px;
+            right: 24px;
+
+            span {
+              font-family: $francois;
+            }
+
+            span:first-child {
+              border-bottom: solid 2px #fff;
+              font-family: $bangers;
+              letter-spacing: 3px;
+            }
+
+
+          }
+        }
+    }
+    .panel-collapse {
+        overflow: hidden;
+        transition: height 0.3s ease-out;
+    }
+    .panel-body {
+        border: none !important;
+
+
+        .tix-button {
+          float: right;
+          background: #d82020;
+          border: solid 2px #d82020;
+          padding: 8px 24px;
+          border-radius: 8px;
+          color: #fff;
+          font-family: 'francois one';
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+        }
+    }
+    h2 {margin-top: 5px !important; text-transform: capitalize; width: 70%;}
+
+    .month {
+      // text-transform: uppercase;
+    }
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.2s;
+    .icon {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: url('../images/ico_loader.svg') no-repeat 0 0;
+        background-size: 248px 248px;
+    }
+}
+.is-loading {
+    .loader {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s linear, visibility 0.3s linear;
+        z-index: 3;
+        .icon {
+            animation: spin 500ms infinite linear;
+        }
+    }
+}
+
+.container-column {
+  width: 100%;
+  margin: auto;
+  display: block
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); transform-origin: center center; }
+    100% { transform: rotate(360deg); transform-origin: center center; }
+}
