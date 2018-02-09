@@ -60,7 +60,11 @@ class App extends React.Component {
                 price: `${event.prices.pricedisplay}`,
                 panelimage: `${event.eventimages.original}`,
                 backgroundImage: `url(${event.eventimages.original})`,
-                description: `${event.description}`
+                description: `${event.description}`,
+                prefix: `${event.prefixtext}`,
+                // headliner: `${event.attractionList[0].artist}`,
+                // open1: `${event.attractionList[1].artist}`,
+                attractionList: `${event.attractionList[0].artist}`
             }
         )))
         .then(events => this.setState({
@@ -82,8 +86,8 @@ class App extends React.Component {
         return (
             <div>
                 <header>
-                    <img src={image} />
-                    <h1>Ticketweb Shows <button className="btn btn-sm btn-danger" onClick={(e) => {
+                    <img src="https://www.thevanburenphx.com/wp-content/uploads/2017/05/TVB_Phoenix_White-1-e1493673504891.png" />
+                    <h1>Upcoming Shows <button className="btn btn-sm btn-danger" onClick={(e) => {
                         this.fetchData();
                     }}>Update List</button>
                     </h1>
@@ -92,7 +96,7 @@ class App extends React.Component {
                     <div className="panel-group">
                         {
                             !isLoading && events.length > 0 ? events.map(event => {
-                                const {eventid, eventname, eventurl, dayofshow, price, panelimage, description } = event;
+                                const {eventid, eventname, eventurl, dayofshow, price, panelimage, description, showdoors, prefix, headliner, attractionList } = event;
 
                                 let sixdigitdate = dayofshow.substring(0,8);
 
@@ -120,19 +124,95 @@ class App extends React.Component {
                                   'dddd | MMM D, YYYY'
                                 );
 
+                                // showtime
+                                let timeofshowraw =  dayofshow.substring(8, 14);
+                                let gethour = timeofshowraw.substring(0,2);
+                                let getmin = timeofshowraw.substring(2,4);
+                                let ampm;
+                                if (gethour > 12) {
+                                  ampm = 'PM';
+                                } else {
+                                  ampm = 'AM';
+                                }
+                                let hour;
+                                if (gethour === '13') {
+                                  hour = 1;
+                                } else if (gethour === '14') {
+                                  hour = 2;
+                                } else if (gethour === '15') {
+                                  hour = 3;
+                                } else if (gethour === '16') {
+                                  hour = 4;
+                                } else if (gethour === '17') {
+                                  hour = 5;
+                                } else if (gethour === '18') {
+                                  hour = 6;
+                                } else if (gethour === '19') {
+                                  hour = 7;
+                                } else if (gethour === '20') {
+                                  hour = 8;
+                                } else if (gethour === '21') {
+                                  hour = 9;
+                                } else if (gethour === '22') {
+                                  hour = 10;
+                                } else {
+                                  hour = 'new time';
+                                }
+                                let formattedTime = hour + ':' + getmin + ' ' + ampm;
+
+                                // SET Door Time
+                                let doortimeraw = showdoors.substring(8, 14);
+                                let getdoorhour = doortimeraw.substring(0,2);
+                                let getdoormin = doortimeraw.substring(2,4);
+                                let doorhour;
+                                if (getdoorhour === '13') {
+                                  doorhour = 1;
+                                } else if (getdoorhour === '14') {
+                                  doorhour = 2;
+                                } else if (getdoorhour === '15') {
+                                  doorhour = 3;
+                                } else if (getdoorhour === '16') {
+                                  doorhour = 4;
+                                } else if (getdoorhour === '17') {
+                                  doorhour = 5;
+                                } else if (getdoorhour === '18') {
+                                  doorhour = 6;
+                                } else if (getdoorhour === '19') {
+                                  doorhour = 7;
+                                } else if (getdoorhour === '20') {
+                                  doorhour = 8;
+                                } else if (getdoorhour === '21') {
+                                  doorhour = 9;
+                                } else if (getdoorhour === '22') {
+                                  doorhour = 10;
+                                } else {
+                                  doorhour = 'new time';
+                                }
+                                let formattedDoor = doorhour + ":" + getdoormin + ' ' + ampm;
+
                               // parse description
                                 let descriptiontext = description;
                                 let parser = new DOMParser;
                                 var dom = parser.parseFromString(
                                   '<!doctype html><body>' + descriptiontext, 'text/html');
-                                var decodedDescription = dom.body.textContent;                            
+                                var decodedDescription = dom.body.textContent;
 
-                                // console.log(formatdescription);
+
+
+
                                 return <Collapsible key={eventid} title={eventname} backgroundurl={panelimage} date={dayofshow}>
                                     <p><a target="_blank" className="tix-button" href={eventurl}>Buy Tickets</a><br /></p>
+                                    <p>{prefix}</p>
                                     <span>{newdate} </span>
                                     <p>{price}</p>
+                                    <p>Doors: {formattedDoor}</p>
+                                    <p>Show: {formattedTime}</p>
                                     {decodedDescription}
+                                    <div className="artist-list">
+                                      <div className="attractions">
+                                        {}
+                                      </div>
+                                    </div>
                                 </Collapsible>
                             }) : null
                         }
