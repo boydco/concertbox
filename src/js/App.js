@@ -202,15 +202,16 @@ class App extends React.Component {
 
                                 return <Collapsible key={eventid} title={eventname} backgroundurl={panelimage} date={dayofshow}>
                                     <p><a target="_blank" className="tix-button" href={eventurl}>Buy Tickets</a><br /></p>
-                                    <p>{prefix}</p>
-                                    <span>{newdate} </span>
-                                    <p>{price}</p>
-                                    <p>Doors: {formattedDoor}</p>
-                                    <p>Show: {formattedTime}</p>
+                                    <p className="event-content__presents">{prefix}</p>
+                                    <p className="event-content__name">{eventname}</p>
+                                    <span className="event-content__date">{newdate} </span>
+                                    <p className="event-content__price">Tickets: {price}</p>
+                                    <p className="event-content__times">Doors: {formattedDoor}</p>
+                                    <p className="event-content__times">Show: {formattedTime}</p>
                                     {decodedDescription}
                                     <div className="artist-list">
                                       <div className="attractions">
-                                        {}
+
                                       </div>
                                     </div>
                                 </Collapsible>

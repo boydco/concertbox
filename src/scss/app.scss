@@ -133,17 +133,18 @@ header {
             font-size: 24px;
             text-transform: uppercase;
             padding: 56px 24px;
-            padding-left: 9.5em;
+            padding-left: 5.5em;
             font-family: $francois;
             text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.61);
 
             @media screen and (min-width: 1000px) {
               padding-left: 12em;
-              font-size: 30px;
+              font-size: 26px;
             }
 
             @media screen and (min-width: 1200px) {
               padding-left: 15em;
+              font-size: 30px;
             }
           }
 
@@ -207,6 +208,45 @@ header {
           font-family: 'francois one';
           letter-spacing: 0.5px;
           text-transform: uppercase;
+        }
+
+        .event-content__name {
+          font-family: $francois;
+          font-size: 20px;
+          width: 50%;
+          letter-spacing: 0px;
+          text-transform: uppercase;
+          letter-spacing: -.5px;
+        }
+
+        .event-content__presents {
+          font-family: $shadows;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: .5px;
+          margin-bottom: 0;
+          font-weight: 100;
+          margin-top: -32px;
+          color: rgba(2, 2, 2, 0.55);
+        }
+
+        .event-content__date {
+          font-family: $montserrat;
+          font-weight: 800;
+          text-transform: uppercase;
+          text-shadow: 0px 0px 0px rgba(0,0,0,.5);
+        }
+
+        .event-content__price {
+          font-size: 20px;
+          font-weight: bold;
+          font-family: $francois;
+        }
+
+        .event-content__times {
+          text-transform: uppercase;
+          font-family: $montserrat;
+          margin-bottom: 0;
         }
     }
     h2 {margin-top: 5px !important; text-transform: capitalize; width: 70%;}
